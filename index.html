@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IEEE Computer Society Student Branch</title>
+    <meta name="description" content="Official website of the IEEE Computer Society Student Branch. Discover events, meet the team, and join our community of innovators.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              ieee: {
+                blue: '#003057',
+                orange: '#F7931E',
+                base: '#E8ECF0',
+                darkBase: '#1F2937',
+              }
+            },
+            fontFamily: {
+              sans: ['Poppins', 'sans-serif'],
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'float-delayed': 'float 6s ease-in-out 3s infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Custom scrollbar for webkit */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #4b5563;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: #E8ECF0;
+        color: #374151;
+        font-family: 'Poppins', sans-serif;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        overflow-x: hidden;
+      }
+      
+      .dark body {
+        background-color: #1F2937;
+        color: #E5E7EB;
+      }
+
+      /* NEUMORPHISM UTILITIES */
+
+      /* 1. Flat / Extruded (Default Card) */
+      .neu-flat {
+        background: #E8ECF0;
+        box-shadow: 9px 9px 18px #c8cdd4, -9px -9px 18px #ffffff;
+        border-radius: 24px;
+        border: 1px solid rgba(255,255,255,0.4);
+      }
+      .dark .neu-flat {
+        background: #1F2937;
+        box-shadow: 8px 8px 16px #151c26, -8px -8px 16px #293648;
+        border: 1px solid rgba(255,255,255,0.05);
+      }
+
+      /* 2. Pressed / Active (For Active States) */
+      .neu-pressed {
+        background: #E8ECF0;
+        box-shadow: inset 6px 6px 12px #c8cdd4, inset -6px -6px 12px #ffffff;
+        border-radius: 20px;
+      }
+      .dark .neu-pressed {
+        background: #1F2937;
+        box-shadow: inset 5px 5px 10px #151c26, inset -5px -5px 10px #293648;
+      }
+
+      /* 3. Inset (For Inputs / Image Containers) */
+      .neu-inset {
+        background: #E8ECF0;
+        box-shadow: inset 8px 8px 16px #c8cdd4, inset -8px -8px 16px #ffffff;
+        border-radius: 20px;
+      }
+      .dark .neu-inset {
+        background: #1F2937;
+        box-shadow: inset 6px 6px 12px #151c26, inset -6px -6px 12px #293648;
+      }
+
+      /* 4. Icon Button (Circular) */
+      .neu-icon-btn {
+        background: #E8ECF0;
+        box-shadow: 6px 6px 12px #c8cdd4, -6px -6px 12px #ffffff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease-in-out;
+        color: #4B5563;
+      }
+      .neu-icon-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 8px 8px 16px #c8cdd4, -8px -8px 16px #ffffff;
+        color: #003057;
+      }
+      .neu-icon-btn:active {
+        transform: translateY(0);
+        box-shadow: inset 4px 4px 8px #c8cdd4, inset -4px -4px 8px #ffffff;
+      }
+      
+      .dark .neu-icon-btn {
+        background: #1F2937;
+        box-shadow: 5px 5px 10px #151c26, -5px -5px 10px #293648;
+        color: #9CA3AF;
+      }
+      .dark .neu-icon-btn:hover {
+        box-shadow: 7px 7px 14px #151c26, -7px -7px 14px #293648;
+        color: #F7931E;
+      }
+      .dark .neu-icon-btn:active {
+        box-shadow: inset 3px 3px 6px #151c26, inset -3px -3px 6px #293648;
+      }
+
+      /* 5. Primary Button (Extruded -> Pressed) */
+      .neu-btn-primary {
+        background: #E8ECF0;
+        box-shadow: 6px 6px 12px #c8cdd4, -6px -6px 12px #ffffff;
+        border-radius: 20px;
+        color: #003057;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
+      .neu-btn-primary:hover {
+        transform: translateY(-2px);
+        color: #F7931E;
+      }
+      .neu-btn-primary:active {
+        transform: translateY(0);
+        box-shadow: inset 4px 4px 8px #c8cdd4, inset -4px -4px 8px #ffffff;
+      }
+      
+      .dark .neu-btn-primary {
+        background: #1F2937;
+        box-shadow: 5px 5px 10px #151c26, -5px -5px 10px #293648;
+        color: #60A5FA;
+      }
+      .dark .neu-btn-primary:hover {
+        color: #F7931E;
+      }
+      .dark .neu-btn-primary:active {
+        box-shadow: inset 3px 3px 6px #151c26, inset -3px -3px 6px #293648;
+      }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+</head>
+  <body class="antialiased">
+    <div id="root"></div>
+  </body>
+</html>
