@@ -1,3 +1,13 @@
+node_modules/
+frontend/dist/
+dist/
+.vite/
+*.log
+.env
+.DS_Store
+served.html
+tmp.css
+tmp.js
 # Logs
 logs
 *.log
